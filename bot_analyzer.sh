@@ -106,7 +106,7 @@ while IFS=':' read -r user_name log_file bot_count; do
     > "$BOT_AGGREGATION"
 
     # Отримуємо всі User-Agent'и ботів і підраховуємо їх частоту
-    grep -i "$DATE_24H_AGO" "$log_file" | grep -i -E "(bot|crawler|spider|developers|facebook|meta|alibaba)" |
+    grep -i "$DATE_24H_AGO" "$log_file" | grep -i -E "(bot|crawler|spider|facebook|meta)" |
     grep -o -E '"[^"]+"$' | tr -d '"' | while read -r user_agent; do
         # Спрощуємо назву бота для більш чіткого представлення
         bot_name=$(echo "$user_agent" | grep -o -i -E "[a-zA-Z0-9]+[Bb]ot|[a-zA-Z0-9]+[Cc]rawler|[a-zA-Z0-9]+[Ss]pider" | head -1)
