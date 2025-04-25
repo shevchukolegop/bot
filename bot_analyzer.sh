@@ -69,7 +69,7 @@ for path_pattern in "${LOG_PATHS[@]}"; do
         site_name=$(basename "$log_file" | sed 's/-ssl_log//')
         
         # Підраховуємо запити від ботів за останні 24 години
-        bot_requests_count=$(grep -i "$DATE_24H_AGO" "$log_file" | grep -i -E "(bot|crawler|spider|developers|facebook|meta|alibaba)" | wc -l)
+        bot_requests_count=$(grep -i "$DATE_24H_AGO" "$log_file" | grep -i -E "(bot|crawler|spider|facebook|meta)" | wc -l)
         
         # Зберігаємо результат для сортування
         if [ "$bot_requests_count" -gt 0 ]; then
